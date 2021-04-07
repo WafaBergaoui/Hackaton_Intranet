@@ -12,6 +12,8 @@ import Switch from 'react-switch';
 
 import { inEvent, outEvent } from '../../store/actions/eventActions';
 
+import CustomChatbot from './CustomChatbot';
+
 // import { eventsData } from '../../data';
 
 import '../../css/Dashboard.css';
@@ -163,6 +165,7 @@ class Dashboard extends Component {
                 <label htmlFor={typeItem} style={{ color: '#ffb600', textDecoration: 'underline', marginTop: '5px' }}>
                     {typeItem}
                 </label>
+                
             </div>
         ));
 
@@ -200,6 +203,7 @@ class Dashboard extends Component {
                         <section className="events-section">
                             <div className="events">{renderEvents}</div>
                         </section>
+                        <CustomChatbot />
                     </div>
                 </main>
             </>
