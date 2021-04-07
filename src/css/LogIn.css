@@ -11,10 +11,15 @@
 
 .LogIn-Aside {
   width: 50%;
-  background-color: #ffb600;
+  background-color: #e4dbc7;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.LogoLogin {
+  width: 200px;
+  height: 400px;
 }
 
 .LogIn-Form {

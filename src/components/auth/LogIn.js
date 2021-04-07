@@ -4,6 +4,9 @@ import SignUpForm from './routes/SignUpForm';
 import SignInForm from './routes/SignInForm';
 import '../../css/LogIn.css';
 import { connect } from 'react-redux';
+const Logo = require('../../../src/assets/images/logo@4x.png');
+
+
 
 class LogIn extends Component {
     render() {
@@ -11,9 +14,8 @@ class LogIn extends Component {
             <Router>
                 <div className="LogIn">
                     <div className="LogIn-Aside">
-                        <div>
-                            <h1>Eventify Logo or</h1>
-                            <h2>other company's logo</h2>
+                        <div className="LogoLogin">
+                            <img src={Logo} />
                         </div>
                     </div>
 

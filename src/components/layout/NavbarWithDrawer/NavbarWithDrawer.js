@@ -38,9 +38,7 @@ class NavbarWithDrawer extends Component {
                         <NavLink to="/dashboard" className="logo" style={{ cursor: 'pointer' }}>
                             <img src={HeaderLogo} alt="logo" className="header-logo" />
                         </NavLink>
-                        <div className="page-name">
-                            <h1 style={{ fontSize: '2.5rem' }}>{this.props.pageName}</h1>
-                        </div>
+                        
                         <div className="spacer" />
                         <div>
                             <DrawerToggleButton handleDrawerToggle={this.handleDrawerToggle} />

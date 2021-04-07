@@ -3,6 +3,7 @@ import HamburgerMenu from '../../../assets/images/menu bar.svg';
 
 import './DrawerToggleButton.css';
 
+
 const DrawerToggleButton = ({ handleDrawerToggle}) => {
     return (
         <button className="menu-btn" onClick={handleDrawerToggle}>

@@ -13,7 +13,7 @@ Authors
 - Sobhi Bougharmi
 - Taha
 
-Technologies
+  Technologies
 
 - REACT
 - REDUX
