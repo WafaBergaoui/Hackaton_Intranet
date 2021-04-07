@@ -21,11 +21,15 @@ import '../../css/Dashboard.css';
 import EventDashboard from './EventDashboard';
 import NavbarWithDrawer from '../layout/NavbarWithDrawer/NavbarWithDrawer';
 
+import SocialMediaButtons from 'react-social-media-buttons';
+
+
 // let eventInitial = [...eventsData];
 
 const eventInitial = [];
 
 class Dashboard extends Component {
+    
     state = {
         // events: [],
 
@@ -169,6 +173,19 @@ class Dashboard extends Component {
             </div>
         ));
 
+
+
+       
+ 
+  const buttonStyle = {
+    backgroundColor: '#ED6762',
+    borderRadius: '50%',
+    width:30,
+    height:30
+  };
+ 
+  const iconStyle = { color: '#ffffff' };
+
         return (
             <>
                 <NavbarWithDrawer pageName="Dashboard" />
@@ -205,6 +222,9 @@ class Dashboard extends Component {
                         </section>
                         <CustomChatbot />
                     </div>
+<div >
+      <SocialMediaButtons links = {['https://github.com/WafaBergaoui/Hackaton_Intranet', 'https://www.linkedin.com/company/dna-global']} buttonStyle={buttonStyle} iconStyle={iconStyle} />
+    </div>
                 </main>
             </>
         );
