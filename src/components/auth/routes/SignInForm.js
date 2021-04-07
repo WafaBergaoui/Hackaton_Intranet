@@ -18,8 +18,6 @@ class SignInForm extends Component {
     handleSubmit = e => {
         e.preventDefault();
 
-        // this is where we can send the data to the server for Sign UP or Sign In
-
         console.log('the form was submitted with the following data:');
         console.log(this.state);
         this.props.signIn(this.state);
@@ -81,19 +79,6 @@ class SignInForm extends Component {
                     </div>
 
                     <div className="FormField">
-                        <div style={{ color: '#111111' }}>
-                            <p
-                                style={{
-                                    fontSize: '1.3rem',
-                                    fontWeight: 'bold',
-                                    paddingBottom: '1rem',
-                                }}
-                            >
-                                Guest user can use:{' '}
-                            </p>
-                            <p>Email:guest@integrify.io</p>
-                            <p>Pass:guest123</p>
-                        </div>
                         <div className="red-text" style={{ color: 'red', paddingTop: '1rem' }}>
                             {authError ? errorMsg : null}
                         </div>

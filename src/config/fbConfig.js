@@ -3,13 +3,14 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 const firebaseConfig = {
-    apiKey: 'AIzaSyAt199AU_HtYeRjLG9tHYlwrw9QKGQvPqg',
-    authDomain: 'eventify-af40c.firebaseapp.com',
-    databaseURL: 'https://eventify-af40c.firebaseio.com',
-    projectId: 'eventify-af40c',
-    storageBucket: 'eventify-af40c.appspot.com',
-    messagingSenderId: '189489424098',
-    appId: '1:189489424098:web:256697c71cfddaa9',
+  apiKey: "AIzaSyD6n64PLZJAfdl9TImSV3IZx8Z7ka4fRkM",
+  authDomain: "dnaintrasolutions.firebaseapp.com",
+  databaseURL: 'https://dnaintrasolutions.firebaseapp.com',
+  projectId: "dnaintrasolutions",
+  storageBucket: "dnaintrasolutions.appspot.com",
+  messagingSenderId: "559095998979",
+  appId: "1:559095998979:web:a1a33da5bee02e8444fc36",
+  measurementId: "G-YKK1V4Z966"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);

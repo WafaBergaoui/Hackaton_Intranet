@@ -5,9 +5,10 @@ import DrawerToggleButton from '../Drawer/DrawerToggleButton';
 import Drawer from '../Drawer/Drawer';
 import Backdrop from '../Backdrop/Backdrop';
 
-import HeaderLogo from '../../../assets/images/header-logo.svg';
-
 import './NavbarWithDrawer.css';
+
+const HeaderLogo = require('../../../assets/images/Logo.png');
+
 
 class NavbarWithDrawer extends Component {
     state = {

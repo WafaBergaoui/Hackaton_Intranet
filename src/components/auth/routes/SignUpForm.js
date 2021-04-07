@@ -14,7 +14,7 @@ const initialState = {
     hasAgreedError: ''
 };
 // let pattern = ^[\w]{2,9}\.[\w]{2,9}\@integrify\.io$
-let pattern = /^[A-Za-z]{2,9}\.[A-Za-z]{2,9}@integrify\.io$/;
+let pattern = /^[A-Za-z]{2,9}\.[A-Za-z]{2,9}@dna-ga\.com$/;
 
 class SignUpForm extends Component {
     state = initialState;
@@ -45,7 +45,7 @@ class SignUpForm extends Component {
         if (!this.state.email) {
             emailError = 'email field cannot be empty';
         } else if (!pattern.test(this.state.email)) {
-            emailError = 'email must be a valid Integrify email';
+            emailError = 'email must be a valid DNA GA email';
         }
         if (this.state.password.length < 6) {
             passwordError = 'password must be minimum of 6 characters';
@@ -111,7 +111,7 @@ class SignUpForm extends Component {
                             id="email"
                             value={this.state.email}
                             className="FormField-Input"
-                            placeholder="firstname.lastname@integrify.io"
+                            placeholder="firstname.lastname@dna-ga.com"
                             name="email"
                             onChange={this.handleChange}
                         />

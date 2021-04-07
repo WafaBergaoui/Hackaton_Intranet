@@ -3,8 +3,10 @@ import { NavLink } from 'react-router-dom';
 
 import '../../css/Navbar.css';
 
-import HeaderLogo from '../../assets/images/header-logo.svg';
 import MenuIcon from '../../assets/images/menu bar.svg';
+
+const HeaderLogo = require('../../assets/images/Logo.png');
+
 
 class NavBar extends React.Component {
     state = {
@@ -46,7 +48,7 @@ class NavBar extends React.Component {
                         <ul className="nav-links">
                             <li>
                                 <NavLink to="/dashboard" onClick={this.handleOpen}>
-                                    Dashboard
+                                    Acceuil
                                 </NavLink>
                             </li>
                             <li>
