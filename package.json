@@ -11,6 +11,7 @@
         "firebase": "^6.0.4",
         "rc-drawer": "^1.9.8",
         "react": "^16.8.6",
+        "react-chatbot-kit": "^1.1.20",
         "react-circular-progressbar": "^2.0.0",
         "react-datetime-picker": "^2.4.0",
         "react-dom": "^16.8.6",

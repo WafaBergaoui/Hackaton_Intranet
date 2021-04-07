@@ -6,11 +6,11 @@ export const createEvent = event => (dispatch, getState, { getFirebase, getFires
     console.log(profile);
 
     firestore
-        .collection('events')
+        .collection("events")
         .add({
             ...event,
             authorId,
-            authorName: profile.name,
+          //  authorName: profile.name,
             participant: { total: 15, in: [], out: [] },
         })
         .then(res => {
