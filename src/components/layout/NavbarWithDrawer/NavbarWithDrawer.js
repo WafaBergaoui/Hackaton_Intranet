@@ -6,9 +6,26 @@ import Drawer from '../Drawer/Drawer';
 import Backdrop from '../Backdrop/Backdrop';
 
 import './NavbarWithDrawer.css';
+//import getWeb3 from "../../Dashboard/getWeb3";
+import Web3 from "web3";
 
 const HeaderLogo = require('../../../assets/images/Logo.png');
-
+const connectmetamask = async () => {
+    console.log("test");
+    if (window.ethereum) {
+        try {
+          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+          console.log(accounts);
+        } catch (error) {
+          if (error.code === 4001) {
+            // User rejected request
+            console.log("erreur");
+          }
+      
+          
+        }
+      }
+} 
 
 class NavbarWithDrawer extends Component {
     state = {
@@ -40,6 +57,7 @@ class NavbarWithDrawer extends Component {
                         </NavLink>
                         
                         <div className="spacer" />
+                        <button class="enableEthereumButton" onClick={connectmetamask}>Enable Blockchain</button>
                         <div>
                             <DrawerToggleButton handleDrawerToggle={this.handleDrawerToggle} />
                         </div>

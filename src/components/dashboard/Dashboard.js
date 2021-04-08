@@ -27,6 +27,8 @@ import PostDashboard from './PostDashboard';
 import NavbarWithDrawer from '../layout/NavbarWithDrawer/NavbarWithDrawer';
 
 import SocialMediaButtons from 'react-social-media-buttons';
+//import SimpleStorageContract from "./contracts/SimpleStorage.json";
+import getWeb3 from "./getWeb3";
 
 
 // let eventInitial = [...eventsData];
@@ -40,12 +42,52 @@ class Dashboard extends Component {
 
         typeInput: { Sport: false, Meetup: false, Party: false, Presentation: false, Other: false },
 
-        searchTerm: ''
+        searchTerm: '',
 
         // checked: false,
 
         // enrollments: [],
+        storageValue: 0,
+         web3: null,
+          accounts: null,
+           contract: null
     };
+    componentDidMount = async () => {
+        try {
+          // Get network provider and web3 instance.
+          const web3 = await getWeb3();
+         /* let web3;
+    if(window.ethereum){
+web3= new Web3(window.ethereum);
+await ethereum.enable();
+    }else if(window.web3){ 
+    web3 =new Web3(window.web3.currentProvider);
+    }*/
+    
+
+
+          // Use web3 to get the user's accounts.
+          const accounts = await web3.eth.getAccounts();
+    
+          // Get the contract instance.
+          //const networkId = await web3.eth.net.getId();
+          //const deployedNetwork = SimpleStorageContract.networks[networkId];
+          //const instance = new web3.eth.Contract(
+            //SimpleStorageContract.abi,
+           // deployedNetwork && deployedNetwork.address,
+         // );
+    
+          // Set web3, accounts, and contract to the state, and then proceed with an
+          // example of interacting with the contract's methods.
+          this.setState({ web3, accounts}, this.runExample);
+        } catch (error) {
+          // Catch any errors for any of the above operations.
+          alert(
+            `Failed to load web3, accounts, or contract. Check console for details.`,
+          );
+          console.error(error);
+        }
+      };
 
     handleSearchChange = event => {
         const { name, type, value } = event.target;
