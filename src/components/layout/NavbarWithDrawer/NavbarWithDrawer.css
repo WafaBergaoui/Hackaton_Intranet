@@ -21,6 +21,9 @@
   flex: 1;
 }
 .enableEthereumButton {
+  color: #ffffff;
+  margin-top: 15px;
+  margin-right: 10px;
   background: #586c96;
   border-radius: 40px;
   display: inline-block;
