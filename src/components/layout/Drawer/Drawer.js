@@ -33,6 +33,16 @@ const Drawer = ({ show, handleBackdropClick }) => {
                     </NavLink>
                 </li>
                 <li>
+                    <NavLink to="/create-Post" onClick={handleBackdropClick}>
+                        Create Blog
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to="/my-posts" onClick={handleBackdropClick}>
+                        My Blogs
+                    </NavLink>
+                </li>
+                <li>
                     <NavLink to="/attending" onClick={handleBackdropClick}>
                         Attending
                     </NavLink>

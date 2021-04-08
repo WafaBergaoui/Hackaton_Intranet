@@ -58,8 +58,9 @@ function CustomChatbot(props) {
   botBubbleColor: "#FCB515",
   botFontColor: "#fff",
   userBubbleColor: "#fff",
-  userFontColor: "#4c4c4c"
+  userFontColor: "#4C4C4C"
  };
+ 
  return (
   <ThemeProvider theme={theme}>
      <ChatBot steps={steps} {...config} />

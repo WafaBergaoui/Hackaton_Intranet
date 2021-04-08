@@ -34,7 +34,7 @@
   flex-direction: column;
 }
 
-.search-form input[type='text'] {
+.search-form input[type="text"] {
   display: block;
   width: 90%;
   margin: 10px auto;
@@ -289,7 +289,7 @@
 
   font-size: 2rem;
 
-  color: #ffb600;
+  color: #0e3b53;
 }
 
 .location {

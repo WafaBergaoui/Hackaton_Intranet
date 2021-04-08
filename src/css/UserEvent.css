@@ -126,7 +126,7 @@
 .date-time .time {
   /* margin: 0 auto 25px; */
   font-size: 1.5rem;
-  color: #ffb600;
+  color: #0e3b53;
 }
 
 .location-user {
@@ -149,8 +149,8 @@
 .btn-delete {
   width: 150px;
   margin: 10px;
-  background-color: #ffb600;
-  color: #111111;
+  background-color: #0e3b53;
+  color: #ffffff;
   border: none;
   outline: none;
   border-radius: 3rem;

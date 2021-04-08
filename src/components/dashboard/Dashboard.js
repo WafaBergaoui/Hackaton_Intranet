@@ -10,7 +10,10 @@ import { compose } from 'redux';
 
 import Switch from 'react-switch';
 
+import { inPost, outPost } from '../../store/actions/postActions';
+
 import { inEvent, outEvent } from '../../store/actions/eventActions';
+
 
 import CustomChatbot from './CustomChatbot';
 
@@ -19,6 +22,8 @@ import CustomChatbot from './CustomChatbot';
 import '../../css/Dashboard.css';
 
 import EventDashboard from './EventDashboard';
+import PostDashboard from './PostDashboard';
+
 import NavbarWithDrawer from '../layout/NavbarWithDrawer/NavbarWithDrawer';
 
 import SocialMediaButtons from 'react-social-media-buttons';
@@ -94,6 +99,48 @@ class Dashboard extends Component {
         }
     };
 
+    filterPost = () => {
+        const { postsFB } = this.props;
+
+        const { typeInput, searchTerm } = this.state;
+
+        console.log(postsFB);
+
+        if (postsFB) {
+            let postFilter = [];
+
+            if (Object.values(typeInput).filter(item => item === true).length === 0) {
+                postFilter = postsFB;
+            } else {
+                const typeFilter = postsFB.filter(post => {
+                    if (typeInput[post.type] === true) {
+                        return post;
+                    }
+                });
+
+                postFilter = typeFilter;
+            }
+
+            postFilter = postFilter.filter(post => {
+                if (post.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+                    return post;
+                }
+            });
+            // not show old post
+
+            postFilter = postFilter.filter(post => {
+                const today = Date.now();
+                // console.log(today * 1000);
+                // console.log(post.date.seconds);
+                if (post.date.seconds * 1000 >= today) {
+                    return post;
+                }
+            });
+
+            return postFilter;
+        }
+    };
+
     // for the switch library
 
     handleSwitchChange = (checked, event, id) => {
@@ -120,6 +167,18 @@ class Dashboard extends Component {
         }
     };
 
+    enrollActionPosts = (type, postId) => {
+        console.log(type, postId);
+
+        if (type === 'in') {
+            this.props.inPost(postId);
+        }
+
+        if (type === 'out') {
+            this.props.outPost(postId);
+        }
+    };
+
     render() {
         const { typeInput, searchTerm } = this.state;
 
@@ -127,6 +186,8 @@ class Dashboard extends Component {
         console.log(auth);
 
         const eventFilter = this.filterEvent();
+        const postFilter = this.filterPost();
+
 
         const renderEvents =
             eventFilter &&
@@ -136,6 +197,18 @@ class Dashboard extends Component {
                     event={event}
                     history={this.props.history}
                     enrollAction={this.enrollAction}
+                    userId={auth.uid}
+                />
+            ));
+
+        const renderPosts =
+            postFilter &&
+            postFilter.map(post => (
+                <PostDashboard
+                    key={post.id}
+                    event={post}
+                    history={this.props.history}
+                    enrollAction={this.enrollActionPosts}
                     userId={auth.uid}
                 />
             ));
@@ -166,7 +239,7 @@ class Dashboard extends Component {
                     // id="material-switch"
                 />
 
-                <label htmlFor={typeItem} style={{ color: '#ffb600', textDecoration: 'underline', marginTop: '5px' }}>
+                <label htmlFor={typeItem} style={{ color: '#000000', textDecoration: 'underline', marginTop: '5px' }}>
                     {typeItem}
                 </label>
                 
@@ -178,13 +251,13 @@ class Dashboard extends Component {
        
  
   const buttonStyle = {
-    backgroundColor: '#ED6762',
+    backgroundColor: 'black',
     borderRadius: '50%',
     width:30,
     height:30
   };
  
-  const iconStyle = { color: '#ffffff' };
+  const iconStyle = { color: '#586C96' };
 
         return (
             <>
@@ -220,9 +293,14 @@ class Dashboard extends Component {
                         <section className="events-section">
                             <div className="events">{renderEvents}</div>
                         </section>
+
+                        <section className="events-section">
+                            <div className="events">{renderPosts}</div>
+                        </section>
+
                         <CustomChatbot />
                     </div>
-<div >
+    <div >
       <SocialMediaButtons links = {['https://github.com/WafaBergaoui/Hackaton_Intranet', 'https://www.linkedin.com/company/dna-global']} buttonStyle={buttonStyle} iconStyle={iconStyle} />
     </div>
                 </main>

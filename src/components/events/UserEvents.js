@@ -15,7 +15,6 @@ const eventInitial = [];
 class UserEvents extends Component {
     deleteAction = id => {
         console.log('deleted');
-
         this.props.deleteEvent(id);
     };
 
